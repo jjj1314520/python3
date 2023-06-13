@@ -1,0 +1,79 @@
+```python
+
+# 猜数字小游戏
+
+import random
+
+# 生成一个1到100之间的随机整数
+
+answer = random.randint(1, 100)
+
+# 初始化猜测次数和猜测结果
+
+guess_count = 0
+
+guess_result = False
+
+# 循环10次让用户输入猜测
+
+while guess_count < 10 and not guess_result:
+
+    # 增加猜测次数
+
+    guess_count += 1
+
+    # 提示用户输入一个数字
+
+    print(f"这是你的第{guess_count}次猜测，请输入一个1到100之间的整数：")
+
+    # 获取用户输入并转换为整数
+
+    guess = int(input())
+
+    # 判断用户输入是否合法
+
+    if guess < 1 or guess > 100:
+
+        print("你输入的数字不在范围内，请重新输入。")
+
+        # 减少猜测次数
+
+        guess_count -= 1
+
+        # 跳过本次循环
+
+        continue
+
+    # 判断用户输入是否正确
+
+    if guess == answer:
+
+        print(f"恭喜你，你猜对了！答案就是{answer}。")
+
+        # 设置猜测结果为真
+
+        guess_result = True
+
+    # 判断用户输入是否太大
+
+    elif guess > answer:
+
+        print("你猜的数字太大了。")
+
+    # 判断用户输入是否太小
+
+    else:
+
+        print("你猜的数字太小了。")
+
+# 判断用户是否赢了或输了
+
+if guess_result:
+
+    print(f"你用了{guess_count}次就猜出了答案，真厉害！")
+
+else:
+
+    print(f"很遗憾，你没有在10次之内猜出答案。答案是{answer}。")
+
+```
